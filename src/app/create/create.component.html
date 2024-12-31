@@ -1,0 +1,80 @@
+
+<div class="container">
+    <h2 class="h2">Create Subcription</h2>
+    <form (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+            <label for="Name">Full Name</label>
+            <input type="text" (click)="removeValidator()" class="form-control" id="Name" [(ngModel)]="subscription.name" name="Name">
+            <span>{{validationUserName}}</span> 
+          </div>
+       
+          <div class="form-group">
+            <label for="Email">Email</label>
+            <input type="text" (click)="removeValidator()" class="form-control" id="Email" [(ngModel)]="subscription.email" name="Email">
+            <span>{{validationEmail}}</span> 
+          </div>
+
+          <div class="form-group">
+            <label for="Platform">Platform</label>
+            <select class="form-select" id="Platform" [(ngModel)]="subscription.platform" name="Platform" (change)="onSubscriptionNameChange($event)" >
+                <option value="" disabled selected>Select Your Platform</option>
+                <option *ngFor="let platform of platforms" [value]="platform.platforms">
+                    {{ platform.platforms }}
+                  </option>
+            </select>
+            <span>{{validationDelvType}}</span>
+        </div> 
+
+        <div class="form-group" *ngIf="subscription.platform">
+            <label for="userName">Enter {{ subscription.platform}} Username</label>
+            <input type="text" class="form-control" id="userName" [(ngModel)]="subscription.userName" name="userName">
+            <span>{{validationUserName}}</span>
+        </div>
+
+        <div class="form-group">
+            <label for="Duration">Duration</label>
+            <select class="form-select" id="Duration" [(ngModel)]="subscription.duration" name="Duration" >
+                <option value="" disabled selected>Select Your Product</option>
+                <option *ngFor="let Durations of duration" [value]="Durations.duration">
+                    {{ Durations.duration }}
+                </option>
+            </select>
+            <span>{{validationDuration}}</span>
+        </div> 
+
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="text" (click)="removeValidator()" class="form-control" id="price" [(ngModel)]="subscription.price" name="price">
+            <span>{{validationPrice}}</span> 
+          </div>
+
+
+          <div class="form-group">
+            <label>Payment Mode</label><br>
+            <div>
+                <input type="radio" id="PhonePay" name="PhonePay" [(ngModel)]="subscription.modeOfPayment" value="PhonePay">
+                <label for="male">PhonePay</label>
+            </div>
+            <div>
+                <input type="radio" id="gPay" name="gPay" [(ngModel)]="subscription.modeOfPayment" value="gPay">
+                <label for="female">gPay</label>
+            </div>
+            <div>
+                <input type="radio" id="NetBanking" name="NetBanking" [(ngModel)]="subscription.modeOfPayment" value="NetBanking">
+                <label for="female">NetBanking</label>
+            </div>
+            <span>{{validationModeOfPayment}}</span>
+        </div>
+
+        <div class="bot">
+            <button type="submit" class="btn btn-success"> Save🔏</button>
+            <Button class="btn btn-danger" (click)="goToProductList()"> <i class="bi bi-x-octagon"></i> </Button>
+          </div>
+              
+
+       
+    </form>
+  </div>
+  
+
