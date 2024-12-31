@@ -9,6 +9,8 @@
     "experimentalDecorators": true,
     "module": "esnext",
     "moduleResolution": "node",
+    "strict": false,
+    "noImplicitAny": false,
     "importHelpers": true,
     "target": "es2015",
     "skipLibCheck": true,
