@@ -3,16 +3,17 @@ import { Injectable } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { Subsc } from './subsc';
 import { User } from './user';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SubscriptionService {
-  private baseUrl = 'http://localhost:2627/sub-scribe'
-  private stsUrl='http://localhost:2627/sub-scribe/update-status'
-private logUrl='http://localhost:2627/sub-scribe/getaccesstoken'
-private platforlUrl='http://localhost:2627/sub-scribe/get-sub-platform'
-private productUrl='http://localhost:2627/sub-scribe/get-sub-duration'
+  private baseUrl = '${environment.baseApiUrl}/sub-scribe'
+  private stsUrl='${environment.baseApiUrl}/sub-scribe/update-status'
+private logUrl='${environment.baseApiUrl}/sub-scribe/getaccesstoken'
+private platforlUrl='${environment.baseApiUrl}/sub-scribe/get-sub-platform'
+private productUrl='${environment.baseApiUrl}/sub-scribe/get-sub-duration'
 
   constructor(private httpClient:HttpClient) { }
 
