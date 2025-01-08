@@ -22,8 +22,6 @@ FROM nginx:alpine
 # Step 8: Copy the build output from the previous stage to Nginx’s HTML directory
 COPY --from=build /build/dist/review-frontend /usr/share/nginx/html/
 
-
-
 # Step 10: Expose port 80
 EXPOSE 80
 
